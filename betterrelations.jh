@@ -1,0 +1,98 @@
+entity Users {
+	id Long,
+	cnpCuiClient String,
+	numeAsigurat String,
+    prenumeAsigurat String,
+    tipAsigurat Asigurat,
+    telefon String,
+    email String,
+	imCode String
+}
+
+entity Oferte {
+	id Long,
+	codOferta String,
+    dataStartPolita Instant,
+    dataEnd Instant,
+    stareOferta StareOferta,
+    idProdus String,
+    valuta String,
+    sumaPlata String,
+    idAgent String,
+    idUser Long
+}
+
+entity Polite {
+	id Long,
+	numarPolita String,
+    seriePolita String,
+    codOferta String,
+    dataStart Instant,
+    dataEnd Instant,
+    perioada Integer,
+    idProdus String,
+    valuta String,
+    sumaPlata String,
+    idAgent String,
+    idUser Long
+}
+
+entity Tranzactii {
+	id Long,
+    codOferta String,
+    idOferta Long,
+	numarPolita String,
+    seriePolita String,
+    idPolita Long,
+    sumaPlatita String,
+    statusPlata StatusPlata,
+    dataPlata Instant,
+    valuta String,
+    idUser Long,
+    referintaIng String
+}
+
+
+enum Asigurat {
+    F, J
+}
+enum StareOferta {
+    ACTIV, INACTIV
+}
+
+enum StatusPlata {
+	NEW, WAITING, CONFIRMED
+}
+
+relationship ManyToOne {
+	Oferte{u(id)} to Users{o(idUser)}
+}
+
+relationship ManyToOne {
+	Polite{u(id)} to Users{p(idUser)}
+}
+
+relationship ManyToOne {
+	Tranzactii{u(id)} to Users{t(idUser)}
+}
+
+relationship OneToOne {
+	Tranzactii{o(id)} to Oferte{t(idOferta)}
+}
+
+relationship OneToOne {
+	Tranzactii{p(id)} to Polite{t(idPolita)}
+}
+
+// Set pagination options
+//paginate Oferte, Polite, Tranzactii with infinite-scroll
+//paginate Users with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
