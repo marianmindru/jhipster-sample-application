@@ -1,0 +1,92 @@
+{
+  "name": "Tranzactii",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idOferta",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "numarPolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seriePolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idPolita",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "sumaPlatita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusPlata",
+      "fieldType": "StatusPlata",
+      "fieldValues": "NEW,WAITING,CONFIRMED"
+    },
+    {
+      "fieldName": "dataPlata",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUser",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "referintaIng",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "oferte",
+      "otherEntityRelationshipName": "tranzactie",
+      "relationshipName": "oferta",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "polite",
+      "otherEntityRelationshipName": "tranzactie",
+      "relationshipName": "polita",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "tranzactie",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "tranzactii",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210817180736"
+}
