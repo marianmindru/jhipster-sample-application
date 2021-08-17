@@ -40,7 +40,9 @@
     "pages": [],
     "creationTimestamp": 1629215216289,
     "jwtSecretKey": "ZTMxMzcxYjEwNWJjODdlM2NlM2I1ZDAxZWQ1OGY2ZjM0NzgzZGY1YjQxMzAxMjRlMmNiMWNlNTU2ZDhjZTdjY2Y4ZGE0NTIyNGM2NTYxNTk3ZmE2OTQ1NTg1YjA5YjhlMTI2YzFiNTFlMzI2ZjNhMWM0NWRjZTExZWY4ZWVhMzE=",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Users", "Oferte", "Polite", "Tranzactii"],
+    "lastLiquibaseTimestamp": 1629221080000
   },
   "git-provider": "GitHub",
   "git-company": "marianmindru",

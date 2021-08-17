@@ -1,0 +1,81 @@
+{
+  "name": "Tranzactii",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numarPolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seriePolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlatita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusPlata",
+      "fieldType": "StatusPlata",
+      "fieldValues": "NEW,WAITING,CONFIRMED"
+    },
+    {
+      "fieldName": "dataPlata",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUser",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "referintaIng",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "oferte",
+      "otherEntityRelationshipName": "tranzactii",
+      "relationshipName": "oferte",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "polite",
+      "otherEntityRelationshipName": "tranzactii",
+      "relationshipName": "polite",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "tranzactii",
+      "relationshipName": "users"
+    }
+  ],
+  "entityTableName": "tranzactii",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210817172440"
+}
