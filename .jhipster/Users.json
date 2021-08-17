@@ -1,0 +1,74 @@
+{
+  "name": "Users",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cnpCuiClient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeAsigurat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenumeAsigurat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipAsigurat",
+      "fieldType": "Asigurat",
+      "fieldValues": "F,J"
+    },
+    {
+      "fieldName": "telefon",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "oferte",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "oferta",
+      "otherEntityField": "idUser"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "polite",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "polita",
+      "otherEntityField": "idUser"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tranzactii",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "tranzactie",
+      "otherEntityField": "idUser"
+    }
+  ],
+  "entityTableName": "users",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210817180733"
+}
