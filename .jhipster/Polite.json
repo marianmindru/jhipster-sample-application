@@ -1,0 +1,85 @@
+{
+  "name": "Polite",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "numarPolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seriePolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idOferta",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dataStart",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "perioada",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUser",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "polite",
+      "relationshipName": "users"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tranzactii",
+      "otherEntityRelationshipName": "polite",
+      "relationshipName": "tranzactii",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "polite",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210818200551"
+}
