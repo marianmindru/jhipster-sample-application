@@ -1,0 +1,60 @@
+{
+  "name": "Oferte",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataStartPolita",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "stareOferta",
+      "fieldType": "StareOferta",
+      "fieldValues": "ACTIV,INACTIV"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUser",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "oferte",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210818120823"
+}
