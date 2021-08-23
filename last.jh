@@ -1,0 +1,85 @@
+entity Clients {
+	id Long,
+	cnpCuiClient String maxlength(50) required,
+	numeAsigurat String maxlength(50) required,
+    prenumeAsigurat String,
+    tipAsigurat Asigurat,
+    telefon String,
+    email String unique,
+	userIdentifier String
+}
+
+entity Oferte {
+	id Long,
+	codOferta String required,
+    dataStartPolita LocalDate,
+    dataEnd LocalDate,
+    stareOferta StareOferta,
+    idProdus String,
+    valuta String,
+    sumaPlata Double min(0) max(9999999999.9999)
+    idAgent String
+
+}
+
+entity Polite {
+	id Long,
+	numarPolita String required,
+    seriePolita String,
+    codOferta String,
+    dataStart LocalDate,
+    dataEnd LocalDate,
+    perioada Integer,
+    idProdus String,
+    valuta String,
+    sumaPlata String,
+    idAgent String
+}
+
+entity Tranzactii {
+	id Long,
+    codOferta String,
+	numarPolita String,
+    seriePolita String,
+    sumaPlatita String,
+    statusPlata StatusPlata,
+    dataPlata LocalDate,
+    valuta String,
+    referintaIng String
+}
+
+
+enum Asigurat {
+    F, J
+}
+enum StareOferta {
+    ACTIV, INACTIV
+}
+
+enum StatusPlata {
+	NEW, WAITING, CONFIRMED
+}
+
+
+relationship OneToMany {
+	Clients to Oferte{user(id)}
+    Clients to Polite{user(id)}
+    Clients to Tranzactii{user(id)}
+}
+
+relationship OneToOne {
+	Oferte to Tranzactii{oferta(id)}
+}
+
+// Set pagination options
+//paginate Oferte, Polite, Tranzactii with infinite-scroll
+//paginate Users with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
