@@ -1,0 +1,76 @@
+{
+  "name": "Oferte",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataStartPolita",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "stareOferta",
+      "fieldType": "StareOferta",
+      "fieldValues": "ACTIV,INACTIV"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUser",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tranzactii",
+      "otherEntityRelationshipName": "oferta",
+      "relationshipName": "tranzactie",
+      "otherEntityField": "idOferta",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "oferte",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "oferte",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823145051"
+}
