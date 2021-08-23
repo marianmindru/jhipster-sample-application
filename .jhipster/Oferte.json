@@ -1,0 +1,68 @@
+{
+  "name": "Oferte",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataStartPolita",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "stareOferta",
+      "fieldType": "StareOferta",
+      "fieldValues": "ACTIV,INACTIV"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "9999999999.9999"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "clients",
+      "otherEntityRelationshipName": "oferte",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "oferte",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823151258"
+}

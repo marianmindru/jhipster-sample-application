@@ -1,0 +1,76 @@
+{
+  "name": "Clients",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cnpCuiClient",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "numeAsigurat",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "prenumeAsigurat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipAsigurat",
+      "fieldType": "Asigurat",
+      "fieldValues": "F,J"
+    },
+    {
+      "fieldName": "telefon",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "userIdentifier",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "oferte",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "oferte"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "polite",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "polite"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tranzactii",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "tranzactii"
+    }
+  ],
+  "entityTableName": "clients",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823151257"
+}
