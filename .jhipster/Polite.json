@@ -1,0 +1,72 @@
+{
+  "name": "Polite",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "numarPolita",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "seriePolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataStart",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "perioada",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "clients",
+      "otherEntityRelationshipName": "polite",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "polite",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823151259"
+}
