@@ -1,0 +1,86 @@
+entity Client {
+	id Long,
+	cnpCuiClient String maxlength(50) required,
+	numeAsigurat String maxlength(50) required,
+    prenumeAsigurat String,
+    tipAsigurat Asigurat,
+    telefon String maxlength(30),
+    email String unique,
+	userIdentifier String
+}
+
+entity Offer {
+	id Long,
+	codOferta String unique required,
+    dataStartPolita LocalDate,
+    dataEnd LocalDate,
+    stareOferta StareOferta,
+    idProdus String maxlength(10),
+    valuta String maxlength(10),
+    sumaPlata Double min(0) max(9999999999.9999)
+    idAgent String
+
+}
+
+entity Policy {
+	id Long,
+	numarPolita String required,
+    seriePolita String required,
+    codOferta String unique required,
+    dataStart LocalDate,
+    dataEnd LocalDate,
+    perioada Integer,
+    idProdus String maxlength(10),
+    valuta String maxlength(10),
+    sumaPlata Double min(0) max(9999999999.9999),
+    idAgent String
+}
+
+entity Transaction {
+	id Long,
+    codOferta String required,
+	numarPolita String,
+    seriePolita String,
+    sumaPlatita Double min(0) max(9999999999.9999),
+    statusPlata StatusPlata,
+    dataPlata LocalDate,
+    valuta String maxlength(10),
+    referintaIng String required
+}
+
+
+enum Asigurat {
+    F, J
+}
+enum StareOferta {
+    ACTIV, INACTIV
+}
+
+enum StatusPlata {
+	NEW, WAITING, REJECTED, CONFIRMED
+}
+
+
+relationship OneToMany {
+	Client to Offer{client(id)}
+    Client to Policy{client(id)}
+    Client to Transaction{client(id)}
+    Offer to Transaction{offer(id)}
+}
+
+relationship OneToOne {
+	Policy{offer(id)} to Offer
+}
+
+// Set pagination options
+//paginate Oferte, Polite, Tranzactii with infinite-scroll
+//paginate Users with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

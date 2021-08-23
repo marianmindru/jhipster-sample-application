@@ -1,0 +1,78 @@
+{
+  "name": "Offer",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "dataStartPolita",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataEnd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "stareOferta",
+      "fieldType": "StareOferta",
+      "fieldValues": "ACTIV,INACTIV"
+    },
+    {
+      "fieldName": "idProdus",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "sumaPlata",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "9999999999.9999"
+    },
+    {
+      "fieldName": "idAgent",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "offer",
+      "relationshipName": "transaction"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "offer",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "offer",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823185427"
+}
