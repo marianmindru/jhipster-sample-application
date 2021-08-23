@@ -1,0 +1,78 @@
+{
+  "name": "Transaction",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codOferta",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numarPolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seriePolita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sumaPlatita",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "9999999999.9999"
+    },
+    {
+      "fieldName": "statusPlata",
+      "fieldType": "StatusPlata",
+      "fieldValues": "NEW,WAITING,REJECTED,CONFIRMED"
+    },
+    {
+      "fieldName": "dataPlata",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "referintaIng",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "offer",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "offer",
+      "otherEntityField": "id"
+    }
+  ],
+  "entityTableName": "transaction",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "changelogDate": "20210823185429"
+}
